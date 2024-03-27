@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, VStack, HStack, Image, Input, Text, Badge } from "@chakra-ui/react";
+import { Box, VStack, HStack, Image, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Text, Badge } from "@chakra-ui/react";
 
 const Index = () => {
   const [threshold, setThreshold] = useState(50);
@@ -22,8 +22,13 @@ const Index = () => {
           <Image src="https://images.unsplash.com/photo-1525939815185-7b25b346d3db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwyfHxzZWN1cml0eSUyMGNhbWVyYSUyMGZvb3RhZ2V8ZW58MHx8fHwxNzExNTM1OTE2fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Camera 2" boxSize="300px" objectFit="cover" />
         </HStack>
         <Box width="300px">
-          <Text mb={2}>Threshold:</Text>
-          <Input type="number" value={threshold} min={0} max={100} onChange={(e) => handleThresholdChange(parseInt(e.target.value))} placeholder="Enter threshold value (0-100)" />
+          <Text mb={2}>Threshold: {threshold}</Text>
+          <Slider value={threshold} min={0} max={100} step={1} onChange={handleThresholdChange}>
+            <SliderTrack>
+              <SliderFilledTrack />
+            </SliderTrack>
+            <SliderThumb />
+          </Slider>
         </Box>
         <HStack spacing={4}>
           <Badge colorScheme={motionDetected1 ? "red" : "green"} px={4} py={2} borderRadius="md">
