@@ -23,7 +23,7 @@ const Index = () => {
         </HStack>
         <Box width="300px">
           <Text mb={2}>Threshold: {threshold}</Text>
-          <Slider value={threshold} min={0} max={100} step={1} onChange={handleThresholdChange}>
+          <Slider value={threshold} min={0} max={255} step={1} onChange={handleThresholdChange}>
             <SliderTrack>
               <SliderFilledTrack />
             </SliderTrack>
